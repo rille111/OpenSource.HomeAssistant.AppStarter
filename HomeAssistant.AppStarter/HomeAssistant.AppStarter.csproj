@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Rickard Robin</Authors>
+    <Company />
+    <Description>Home Assistant 'Hass' is a home automation system running on Unix-systems. This package aims to enable .NET developers to create their own 'app-like' programs that integrate with Home Assistant through it's Websocket and Web API's.</Description>
+    <Version>0.1.0</Version>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/rille111/HomeAssistant.AppStarter/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/rille111/HomeAssistant.AppStarter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rille111/HomeAssistant.AppStarter</RepositoryUrl>
+    <PackageTags>hass home-assistant .net app home automation</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="WebSocketSharp-netstandard" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
