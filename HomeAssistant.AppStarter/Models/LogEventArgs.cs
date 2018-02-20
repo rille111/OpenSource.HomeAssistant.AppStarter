@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Rille.Hass.AppStarter.Models
+namespace HomeAssistant.AppStarter.Models
 {
     /// <summary>
     /// <see cref="HassAppsRunner"/> outputs this as an object to all Log events

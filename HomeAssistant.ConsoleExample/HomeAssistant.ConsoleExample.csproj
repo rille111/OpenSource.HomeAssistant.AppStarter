@@ -6,8 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HomeAssistant.AppStarter" Version="0.1.0" />
+    <None Remove="nlog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NLog" Version="4.5.0-rc06" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HomeAssistant.AppStarter\HomeAssistant.AppStarter.csproj" />
   </ItemGroup>
 
 </Project>

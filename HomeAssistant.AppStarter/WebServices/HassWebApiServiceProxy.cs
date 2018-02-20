@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Net.Http;
+using System.Threading.Tasks;
 
-namespace Rille.Hass.AppStarter.WebServices
+namespace HomeAssistant.AppStarter.WebServices
 {
     public interface IHassWebApiServiceProxy
     {

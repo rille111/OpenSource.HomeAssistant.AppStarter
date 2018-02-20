@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Rille.Hass.AppStarter.Models.Events;
+using HomeAssistant.AppStarter.Models.Events;
 
-namespace Rille.Hass.AppStarter
+namespace HomeAssistant.AppStarter
 {
     public interface IHassApp
     {

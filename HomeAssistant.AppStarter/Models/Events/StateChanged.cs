@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Rille.Hass.AppStarter.Models.Events
+namespace HomeAssistant.AppStarter.Models.Events
 {
     public class StateChanged
     {

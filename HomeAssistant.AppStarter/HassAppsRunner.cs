@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HomeAssistant.AppStarter.Extensions;
+using HomeAssistant.AppStarter.Models;
+using HomeAssistant.AppStarter.Models.Events;
+using HomeAssistant.AppStarter.Models.WebsocketCommands;
+using HomeAssistant.AppStarter.RawModels;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Rille.Hass.AppStarter.Models;
-using Rille.Hass.AppStarter.Models.Events;
-using Rille.Hass.AppStarter.Models.WebsocketCommands;
-using Rille.Hass.AppStarter.RawModels;
 using WebSocketSharp;
 
-namespace Rille.Hass.AppStarter
+namespace HomeAssistant.AppStarter
 {
     // TODO: Implement IDisposable to call Stop()
     /// <summary>

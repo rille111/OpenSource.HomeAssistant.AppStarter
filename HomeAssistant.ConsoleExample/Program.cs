@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
+using HomeAssistant.AppStarter;
 using NLog;
-using Rille.Hass.AppStarter;
 
 namespace HomeAssistant.ConsoleExample
 {

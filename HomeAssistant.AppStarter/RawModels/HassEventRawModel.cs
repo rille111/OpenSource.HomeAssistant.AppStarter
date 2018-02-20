@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Rille.Hass.AppStarter.RawModels
+namespace HomeAssistant.AppStarter.RawModels
 {
     /// <summary>
     /// Deserialized as-is from Hass

@@ -1,29 +1,31 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Rille.Hass.AppStarter;
 
 // ReSharper disable once CheckNamespace
-internal static class DictionaryExtensions
+namespace HomeAssistant.AppStarter.Extensions
 {
-    /// <summary>
-    /// Find apps matching the entity id. App-keys can have wildcard: *
-    /// </summary>
-    internal static List<IHassApp>  FindApps(this Dictionary<string, List<IHassApp>> apps, string entityId)
+    internal static class DictionaryExtensions
     {
-        var matchedApps = new List<IHassApp>();
-        foreach (var entry in apps)
+        /// <summary>
+        /// Find apps matching the entity id. App-keys can have wildcard: *
+        /// </summary>
+        internal static List<IHassApp>  FindApps(this Dictionary<string, List<IHassApp>> apps, string entityId)
         {
-            // entityId "lights.home_1"
-            // key: "lights.home*"
+            var matchedApps = new List<IHassApp>();
+            foreach (var entry in apps)
+            {
+                // entityId "lights.home_1"
+                // key: "lights.home*"
 
-            if (Regex.IsMatch(entityId, entry.Key.WildcardToRegex()))
-                matchedApps.AddRange(entry.Value);
+                if (Regex.IsMatch(entityId, entry.Key.WildcardToRegex()))
+                    matchedApps.AddRange(entry.Value);
+            }
+            return matchedApps;
         }
-        return matchedApps;
-    }
 
-    internal static string WildcardToRegex(this string text)
-    {
-        return "^" + Regex.Escape(text).Replace("\\*", ".*") + "$";
+        internal static string WildcardToRegex(this string text)
+        {
+            return "^" + Regex.Escape(text).Replace("\\*", ".*") + "$";
+        }
     }
 }

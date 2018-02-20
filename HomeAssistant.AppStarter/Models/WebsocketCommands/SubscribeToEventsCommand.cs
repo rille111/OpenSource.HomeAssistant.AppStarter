@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Rille.Hass.AppStarter.Models.WebsocketCommands
+namespace HomeAssistant.AppStarter.Models.WebsocketCommands
 {
     public class SubscribeToEventsCommand
     {

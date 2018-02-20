@@ -1,5 +1,3 @@
-﻿using System.Threading.Tasks;
-
-namespace Rille.Hass.AppStarter.WebServices
+﻿namespace HomeAssistant.AppStarter.WebServices
 {
 }

@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
+using HomeAssistant.AppStarter;
+using HomeAssistant.AppStarter.Models.Events;
+using HomeAssistant.AppStarter.WebServices;
 using NLog;
-using Rille.Hass.AppStarter;
-using Rille.Hass.AppStarter.Models.Events;
-using Rille.Hass.AppStarter.WebServices;
 
 namespace HassLab.Console.HassApps
 {

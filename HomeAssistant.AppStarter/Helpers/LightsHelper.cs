@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
+using HomeAssistant.AppStarter.WebServices;
 using Newtonsoft.Json.Linq;
-using Rille.Hass.AppStarter.WebServices;
 
-namespace Rille.Hass.AppStarter.Helpers
+namespace HomeAssistant.AppStarter.Helpers
 {
     /// <summary>
     /// Maybe this helper should be in the HassAppsRunner, for ease of use for consumers?
