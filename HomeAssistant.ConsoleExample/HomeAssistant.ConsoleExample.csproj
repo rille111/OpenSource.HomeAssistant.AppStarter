@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="HomeAssistant.AppStarter" Version="0.1.0" />
+    <PackageReference Include="NLog" Version="4.5.0-rc06" />
+  </ItemGroup>
+
 </Project>
