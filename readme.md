@@ -45,8 +45,8 @@ Super easy! Better show with code:
         }
 ```
 
-And an app!:
-```
+And an app to help you wake up! (It will be found by the AppStarter since it scans for everything that implements IHassApp)
+``` CSharp
     public class WakeUpApp : IHassApp
     {
         public string TriggeredByEntities { get; set; } = "automation.wakeup_*"; // <-- yes, wildcards are supported!
