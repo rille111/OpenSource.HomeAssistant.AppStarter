@@ -13,7 +13,8 @@ It is easy, just nuget-install Rille.Hass.AppStarter and follow the steps and yo
 
 * By nuget
 `Install-Package HomeAssistant.AppStarter`
-* By downloading this library.
+* https://www.nuget.org/packages/HomeAssistant.AppStarter/
+* Or by downloading this library.
 
 ## Usage - Create apps
 
