@@ -10,10 +10,20 @@ namespace HassLab.Console.HassApps
     {
         public string TriggeredByEntities { get; set; } = "automation.wakeup_*"; // <-- yes, wildcards are supported!
 
-        // Dependencies (IoC or Factories not supported right now)
-        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private readonly HassWebApiServiceProxy _hassApiProxy = new HassWebApiServiceProxy("http://192.168.0.201:8123/api");
+        // Add your password, if any, for Home Assistant here
+        private readonly string ApiPassword = "";
+        // Add the address to your Home Assistant instance here
+        private readonly string WebApiBaseUrl = "http://ip-address:port/";
 
+        // Dependencies (IoC or Factories not supported right now)
+        private readonly ILogger _logger;
+        private readonly HassWebApiServiceProxy _hassApiProxy;
+        public WakeUpApp()
+        {
+            _logger = LogManager.GetCurrentClassLogger();
+            _hassApiProxy = new HassWebApiServiceProxy(WebApiBaseUrl, ApiPassword);
+
+        }
         public async Task ExecuteAsync(EventData e, string rawData)
         {
             if (e.StateChangeData.OldState != "on" || e.StateChangeData.NewState != "on")

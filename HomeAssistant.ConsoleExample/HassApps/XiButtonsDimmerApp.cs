@@ -9,18 +9,23 @@ namespace HassLab.Console.HassApps
 {
     public class XiButtonsDimmerApp : IHassApp
     {
-        public string TriggeredByEntities { get; set; } = "binary_sensor.switch_158d00016d75aa, binary_sensor.switch_158d0001a654b8";
+        public string TriggeredByEntities { get; set; } = "input_boolean.cleaning_day";
         public bool IsExecuting { get; set; }
 
         private readonly ILogger _logger;
         private readonly IHassWebApiServiceProxy _hassApiProxy;
         private readonly LightsHelper _lightsHelper;
 
+        // Add your password, if any, for Home Assistant here
+        private readonly string ApiPassword = "";
+        // Add the address to your Home Assistant instance here
+        private readonly string WebApiBaseUrl = "http://ip-address:port/";
+
         // Dependencies (IoC or Factories not supported yet, but would be nice with a factory that you can override to work with whatever)
         public XiButtonsDimmerApp()
         {
             _logger = LogManager.GetCurrentClassLogger();
-            _hassApiProxy = new HassWebApiServiceProxy("http://192.168.0.201:8123/api");
+            _hassApiProxy = new HassWebApiServiceProxy(WebApiBaseUrl, ApiPassword);
             _lightsHelper = new LightsHelper(_hassApiProxy);
         }
 

@@ -28,16 +28,24 @@ namespace HomeAssistant.AppStarter.WebServices
     public class HassWebApiServiceProxy : IHassWebApiServiceProxy
     {
         private static readonly HttpClient Client = new HttpClient();
+        private static string _password_query;
 
         public HassWebApiServiceProxy(string webApiBaseUrl)
         {
             Client.BaseAddress = new Uri(webApiBaseUrl);
         }
-        
+        public HassWebApiServiceProxy(string webApiBaseUrl, string apiPassword = "")
+        {
+            Client.BaseAddress = new Uri(webApiBaseUrl);
+            if (!string.IsNullOrEmpty(apiPassword))
+            {
+                _password_query = $"?api_password={apiPassword}";
+            }
+        }
         /// <inheritdoc />
         public async Task<string> GetHassEntityStateAsJson(string entityId)
         {
-            var response = await Client.GetAsync($"api/states/{entityId}");
+            var response = await Client.GetAsync($"api/states/{entityId}{_password_query}");
 
             try
             {
@@ -56,7 +64,7 @@ namespace HomeAssistant.AppStarter.WebServices
         public async Task<string> CallHassService(string domain, string service, object data)
         {
 
-            HttpResponseMessage response = await Client.PostAsJsonAsync($"api/services/{domain}/{service}", data);
+            HttpResponseMessage response = await Client.PostAsJsonAsync($"api/services/{domain}/{service}{_password_query}", data);
 
             try
             {

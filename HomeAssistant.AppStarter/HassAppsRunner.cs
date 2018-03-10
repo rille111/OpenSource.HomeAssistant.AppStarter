@@ -28,6 +28,7 @@ namespace HomeAssistant.AppStarter
 
         // Fields
         private readonly string _hassWebsocketUri;
+        private readonly string _apiPasswordQuery;
         private bool _inited;
         /// <summary>
         /// TODO: This lib needs to be .NET Core
@@ -45,6 +46,14 @@ namespace HomeAssistant.AppStarter
         {
             _hassWebsocketUri = hassWebsocketUri;
         }
+        // Ctor
+        /// <param name="hassWebsocketUri">Example: 'ws://192.168.0.168:8123/api/websocket' </param>
+        /// <param name="apiPassword"></param>
+        public HassAppsRunner(string hassWebsocketUri, string apiPassword)
+        {
+            _hassWebsocketUri = hassWebsocketUri;
+            _apiPasswordQuery = $"?api_password={apiPassword}";
+        }
 
         // Public 
 
@@ -58,7 +67,14 @@ namespace HomeAssistant.AppStarter
             if (_started)
                 throw new InvalidOperationException($"{nameof(HassAppsRunner)} already started!");
 
-            _ws = new WebSocket(_hassWebsocketUri);
+            if(string.IsNullOrEmpty(_apiPasswordQuery))
+            {
+                _ws = new WebSocket(_hassWebsocketUri);
+            }
+            else
+            {
+                _ws = new WebSocket($"{_hassWebsocketUri}{_apiPasswordQuery}");
+            }
             _ws.Log.Output += OnWebsocketLog;
             _ws.OnError += OnError;
             _ws.OnMessage += OnMessage;
@@ -192,12 +208,17 @@ namespace HomeAssistant.AppStarter
 
             if (json.IsStateChangeEvent())
             {
+                //entity_boolean doesn't have a "last_triggered" attribute.
+                if (!entId.Contains("input_boolean."))
+                {
+                    if (!json.HasNewStateWithLastTriggered())
+                        return; // Irrelevant event, we need new states that has "last time triggered" otherwise it might be an event provoked by reloading Hass. Unsure about this.
+
+                }
                 if (!json.IsTheMostRelevantStateChangeMessage())
                     return; // Is most probably a 'duped' event, throw it away ..
                 if (!json.HasNewState())
                     return; // Irrelevant event, we need new states only ..
-                if (!json.HasNewStateWithLastTriggered())
-                    return; // Irrelevant event, we need new states that has "last time triggered" otherwise it might be an event provoked by reloading Hass. Unsure about this.
 
                 var rawGraph = JsonConvert.DeserializeObject<HassEventRawModel>(e.Data);
                 var stateChange = new StateChanged();
