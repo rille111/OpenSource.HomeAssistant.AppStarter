@@ -22,7 +22,12 @@ namespace HomeAssistant.ConsoleExample
         {
             await Task.Delay(0);
 
-            var appRunner = new HassAppsRunner("ws://192.168.0.201:8123/api/websocket");
+            // Add your password, if any, for Home Assistant here
+            var apiPassword = "";
+            // Add the address to your Home Assistant instance here
+            var hassUrl = "ip-address:port";
+
+            var appRunner = new HassAppsRunner($"ws://{hassUrl}/api/websocket", apiPassword);
 
             appRunner.TraceOutput += (sender, args) => _logger.Trace(args.Exception, args.Text);
             appRunner.DebugOutput += (sender, args) => _logger.Debug(args.Exception, args.Text);
