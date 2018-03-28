@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using WebSocketSharp;
 
+
 namespace HomeAssistant.AppStarter
 {
     // TODO: Implement IDisposable to call Stop()
