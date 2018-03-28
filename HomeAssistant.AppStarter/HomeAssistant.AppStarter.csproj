@@ -5,7 +5,7 @@
     <Authors>Rickard Robin</Authors>
     <Company />
     <Description>Home Assistant 'Hass' is a home automation system running on Unix-systems. This package aims to enable .NET developers to create their own 'app-like' programs that integrate with Home Assistant through it's Websocket and Web API's.</Description>
-    <Version>0.2.4</Version>
+    <Version>0.2.5</Version>
     <PackageLicenseUrl>https://raw.githubusercontent.com/rille111/HomeAssistant.AppStarter/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/rille111/HomeAssistant.AppStarter</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rille111/HomeAssistant.AppStarter</RepositoryUrl>
