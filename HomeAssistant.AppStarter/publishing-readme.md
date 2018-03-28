@@ -1,7 +1,7 @@
 ﻿== Publishing to Nuget ==
 
 * Go to property pages for the project, packaging tab
-* Increment the version and write release notes
+* Increment the version (PACKAGE VERSION!!) and write release notes
 * Right click project, choose package
 * See the bin/release folder for the .nupkg
 * Login to nuget.org and go to https://www.nuget.org/packages/HomeAssistant.AppStarter/
